@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from core.views import IndexTemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
-    re_path(r"^.*$", IndexTemplateView.as_view(), name="entry-point"),
     path('admin/', admin.site.urls),
-]
+    re_path(r"^.*$", IndexTemplateView.as_view(), name="entry-point"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
