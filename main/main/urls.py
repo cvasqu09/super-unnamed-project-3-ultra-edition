@@ -20,10 +20,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers, serializers, viewsets
 from users.models import User
-
+from users.views import getUsers
+from api import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('rest_framework.urls')),
+    path('api/', include('api.urls')),
     re_path(r"^.*$", IndexTemplateView.as_view(), name="entry-point"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
