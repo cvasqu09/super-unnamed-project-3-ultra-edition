@@ -6,18 +6,15 @@
       </b-navbar-item>
     </template>
     <template #start>
-      <b-navbar-item href="#">
+      <b-navbar-item :to="{ path: '/' }">
         Home
       </b-navbar-item>
-      <b-navbar-item href="#">
-        Documentation
+      <b-navbar-item tag="router-link" :to="{ name: 'users'}">
+        Users
       </b-navbar-item>
       <b-navbar-dropdown label="Info">
-        <b-navbar-item href="#">
+        <b-navbar-item tag="router-link" :to="{ name: 'about' }">
           About
-        </b-navbar-item>
-        <b-navbar-item href="#">
-          Contact
         </b-navbar-item>
       </b-navbar-dropdown>
     </template>
