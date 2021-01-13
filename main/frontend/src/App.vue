@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <the-header></the-header>
     <router-view default="{name: 'home'}"/>
   </div>
 </template>
@@ -26,3 +27,10 @@
   }
 }
 </style>
+<script>
+import TheHeader from '@/components/ui/TheHeader.vue';
+
+export default {
+  components: { TheHeader },
+};
+</script>

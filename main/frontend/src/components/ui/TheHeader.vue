@@ -9,6 +9,9 @@
       <b-navbar-item :to="{ path: '/' }">
         Home
       </b-navbar-item>
+      <b-navbar-item tag="router-link" :to="{ name: 'posts' }">
+        Posts
+      </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ name: 'users'}">
         Users
       </b-navbar-item>
