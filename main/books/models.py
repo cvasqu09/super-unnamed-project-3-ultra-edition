@@ -4,14 +4,20 @@ from users.models import User
 from django.utils.translation import gettext_lazy as _
 
 
+class Shelf(models.Model):
+    value = models.CharField(max_length=20, null=True)
+
+    READING = 1
+    TO_READ = 2
+    READ = 3
+
+    SHELF_STATUSES = {
+        'currently-reading': READING,
+        'to-read': TO_READ,
+        'read': READ
+    }
+
 class Book(models.Model):
-
-    class Shelf(models.TextChoices):
-        READING = 'cr', _('currently-reading')
-        READ = 're', _('read')
-        TO_READ = 'tr', _('to-read')
-
-
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     gr_id = models.CharField(max_length=100)
@@ -24,7 +30,7 @@ class Book(models.Model):
     original_publication = models.PositiveSmallIntegerField(null=True)
     date_read = models.DateField(auto_now=False, null=True)
     date_added = models.DateField(auto_now=False, null=True)
-    shelf = models.CharField(max_length=2, choices=Shelf.choices, default=Shelf.TO_READ)
+    shelf = models.ForeignKey(Shelf, on_delete=models.DO_NOTHING, default=Shelf.TO_READ, null=True)
     review = models.CharField(max_length=15000, null=True, blank=True)
 
     def __str__(self):

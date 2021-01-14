@@ -1,11 +1,7 @@
 <template>
-  <div class="card">
-    <div class="card-header" v-if="title">
-      <p class="card-header-title">
-        {{ title }}
-      </p>
-    </div>
+  <div class="card" id="base-card-container">
     <div class="card-content">
+      <p class="title">{{ title }}</p>
       <slot name="content"></slot>
     </div>
   </div>
@@ -24,5 +20,7 @@ export default {
 </script>
 
 <style scoped>
-
+#base-card-container {
+  width: 100%;
+}
 </style>

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from books.models import Book
+from rest_framework.decorators import api_view
+from books.models import Book, Shelf
 from books.serializers import BookSerializer
 
 
@@ -12,3 +13,19 @@ class BookViewSet(ViewSet):
 
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+def getBooks(request):
+    readFilter = Shelf.READ
+    if request.method == 'GET' and 'filter' in request.GET:
+        filterParam = request.GET['filter']
+        if filterParam in Shelf.SHELF_STATUSES.keys():
+            readFilter = Shelf.SHELF_STATUSES[filterParam]
+    
+    
+    
+    books = Book.objects.filter(shelf=readFilter)
+    for b in books:
+        print(b.shelf)
+    serializer = BookSerializer(books, many=True)
+    return Response(serializer.data)
