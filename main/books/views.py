@@ -28,3 +28,13 @@ def getBooks(request):
 
     serializer = BookSerializer(books, many=True)
     return Response(serializer.data[:20])
+
+
+@api_view(['GET'])
+def getBookStats(request):
+    allBooksPages = Book.objects.exclude(number_of_pages__isnull=True).values_list('number_of_pages', flat=True);
+    readBookPages = Book.objects.exclude(number_of_pages__isnull=True).filter(shelf=Shelf.READ).values_list('number_of_pages', flat=True);
+    totalReviews = Book.objects.exclude(review__isnull=True).count()
+    totalPages = sum(allBooksPages)
+    totalReadPages = sum(readBookPages)
+    return Response({'totalPages': totalPages, 'readPages': totalReadPages, 'numberOfReviews': totalReviews})

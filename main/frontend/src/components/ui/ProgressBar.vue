@@ -10,13 +10,12 @@
 import Progress from 'easy-circular-progress';
 
 export default {
-  name: 'BookPageProgressBar',
+  name: 'ProgressBar',
   components: {
     Progress,
   },
   props: {
     progress: {
-      type: Number,
       default: 0,
     },
     description: {
