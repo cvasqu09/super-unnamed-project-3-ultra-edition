@@ -27,7 +27,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://localhost:8000/api/posts/').then((res) => {
+    axios.get('/posts/').then((res) => {
       const retrievedPosts = res.data;
       this.posts = retrievedPosts.map((post) => ({
         title: post.title,

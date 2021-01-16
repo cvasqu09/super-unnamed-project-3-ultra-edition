@@ -1,5 +1,8 @@
 <template>
   <div class="card" id="base-card-container">
+    <div class="card-image">
+      <slot name="image"></slot>
+    </div>
     <div class="card-content">
       <p class="title">{{ title }}</p>
       <slot name="content"></slot>

@@ -20,9 +20,8 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://localhost:8000/api/users/')
+    axios.get('/users/')
       .then((res) => {
-        console.log('users', res);
         this.users = res.data;
       });
   },

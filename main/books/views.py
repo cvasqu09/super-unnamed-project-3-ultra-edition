@@ -25,7 +25,6 @@ def getBooks(request):
     
     
     books = Book.objects.filter(shelf=readFilter)
-    for b in books:
-        print(b.shelf)
+
     serializer = BookSerializer(books, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data[:20])
