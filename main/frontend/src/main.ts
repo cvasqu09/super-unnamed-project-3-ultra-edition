@@ -16,5 +16,8 @@ const app = new Vue({
   render: (h) => h(App),
 });
 
-Vue.use(Buefy);
+Vue.use(Buefy, {
+  defaultIconPack: 'fas',
+  defaultContainerElement: '#content',
+});
 app.$mount('#app');

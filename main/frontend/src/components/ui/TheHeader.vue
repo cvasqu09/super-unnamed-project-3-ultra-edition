@@ -18,11 +18,9 @@
       <b-navbar-item tag="router-link" :to="{ name: 'users'}">
         Users
       </b-navbar-item>
-      <b-navbar-dropdown label="Info">
-        <b-navbar-item tag="router-link" :to="{ name: 'about' }">
-          About
-        </b-navbar-item>
-      </b-navbar-dropdown>
+      <b-navbar-item tag="router-link" :to="{ name: 'journals'}">
+        Journals
+      </b-navbar-item>
     </template>
   </b-navbar>
 </template>
