@@ -72,7 +72,6 @@ export default {
   },
   methods: {
     updateBooks(filter = shelfValues[Shelves.READ]) {
-      console.log('selected shelf', this.selectedShelf);
       axios.get('books/', {
         params: {
           filter,

@@ -18,7 +18,7 @@
       <b-navbar-item tag="router-link" :to="{ name: 'users'}">
         Users
       </b-navbar-item>
-      <b-navbar-item tag="router-link" :to="{ name: 'journals'}">
+      <b-navbar-item tag="router-link" :to="{ name: 'journal-list'}">
         Journals
       </b-navbar-item>
     </template>

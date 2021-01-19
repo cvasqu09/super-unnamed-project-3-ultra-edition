@@ -12,6 +12,7 @@ router.register(r'users', UserViewSet, basename='User')
 router.register(r'posts', PostViewSet, basename='Post')
 router.register(r'journals', JournalViewSet, 'Journal')
 
+
 statspatterns = [
     path('stats/books/', getBookStats)
 ]
