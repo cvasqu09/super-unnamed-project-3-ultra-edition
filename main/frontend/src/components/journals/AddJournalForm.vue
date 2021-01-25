@@ -5,7 +5,7 @@
     </b-field>
 
     <b-field label="Content" label-position="inside">
-      <b-input maxlength="15000" type="textarea"></b-input>
+      <b-input v-model="content" maxlength="15000" type="textarea"></b-input>
     </b-field>
 
     <b-button class="is-primary fr" @click="saveJournal">

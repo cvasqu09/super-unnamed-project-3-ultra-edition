@@ -1,10 +1,13 @@
 <template>
   <section>
-    <h2>Journal List Page</h2>
     <b-button class="is-primary" @click="navToAddJournal">
-      <b-icon pack="fas" icon="plus-square" size="is-small"></b-icon>
-      Add
+      <b-icon class="mr-1" pack="fas" icon="plus-square" size="is-small"></b-icon>
+      Add New Journal
     </b-button>
+    <section v-for="journal in journals" :key="journal.id">
+      <h2>{{ journal.title }}</h2>
+      <p>{{ journal.content }}</p>
+    </section>
   </section>
 </template>
 
