@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.decorators import api_view
 from rest_framework import status
 from journals.models import Journal
-from users.models import User
+from django.contrib.auth.models import User
 from journals.serializers import JournalSerializer
 from rest_framework.viewsets import ViewSet
 

@@ -3,7 +3,7 @@
     <h1>Users</h1>
     <ul>
       <li v-for="user in users" :key="user.id">
-        <h1>{{user.username}}</h1>
+        <h1>{{ user.username }}</h1>
       </li>
     </ul>
   </div>
@@ -20,7 +20,10 @@ export default {
     };
   },
   mounted() {
-    axios.get('/users/')
+    axios.post('/auth/', {
+      username: 'test',
+      password: 'password',
+    })
       .then((res) => {
         this.users = res.data;
       });

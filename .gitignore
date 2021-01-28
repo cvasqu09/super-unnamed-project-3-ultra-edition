@@ -39,3 +39,4 @@ pip-delete-this-directory.txt
 Lib/
 Scripts/
 Include/
+main/.idea/**

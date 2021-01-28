@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -16,6 +17,8 @@ class BookViewSet(ViewSet):
 
 @api_view(['GET'])
 def getBooks(request):
+    permission_classes = [isAuthenticated]
+
     readFilter = Shelf.READ
     if request.method == 'GET' and 'filter' in request.GET:
         filterParam = request.GET['filter']
