@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <b-button tag="router-link" :to="{name: 'login'}">Login</b-button>
   </div>
 </template>
 

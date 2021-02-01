@@ -5,13 +5,14 @@ import Home from '../pages/Home.vue';
 import UserPage from '../pages/UserPage.vue';
 import PostsPage from '../pages/PostsPage.vue';
 import BooksPage from '../pages/BooksPage.vue';
+import LoginPage from '../pages/LoginPage.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
   {
@@ -28,6 +29,11 @@ const routes: Array<RouteConfig> = [
     path: '/books',
     name: 'books',
     component: BooksPage,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage,
   },
   ...journalRoutes,
 ];
